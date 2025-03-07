@@ -10,6 +10,15 @@ android {
     namespace = "com.example.horoscapp"
     compileSdk = 35
 
+    packaging {
+        resources {
+            excludes += "META-INF/LICENSE.md"
+            excludes += "META-INF/LICENSE.txt"
+            excludes += "META-INF/LICENSE-notice.md"
+            excludes += "META-INF/LICENSE-notice.txt"
+            excludes += "META-INF/DEPENDENCIES"
+        }
+    }
     defaultConfig {
         applicationId = "com.example.horoscapp"
         minSdk = 24
@@ -17,7 +26,7 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.example.horoscapp.CustomTestRunner"
     }
 
     buildTypes {
@@ -62,6 +71,7 @@ dependencies {
     implementation(libs.hilt.android)
     testImplementation(libs.junit.jupiter)
     testImplementation(libs.junit.jupiter)
+    androidTestImplementation(libs.junit.jupiter)
     kapt(libs.hilt.compiler)
 
     //Retrofit
@@ -90,6 +100,12 @@ dependencies {
     testImplementation(libs.kotlintest.runner)
     testImplementation(libs.mockk)
 
+    //UI Testing
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation(libs.espresso.contrib)
+    androidTestImplementation(libs.espresso.intents)
+    androidTestImplementation(libs.hilt.android.testing)
+    androidTestImplementation(libs.fragment.testing)
+    kaptAndroidTest(libs.hilt.android.compiler)
 }
