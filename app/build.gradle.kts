@@ -60,6 +60,8 @@ dependencies {
 
     //DaggerHilt
     implementation(libs.hilt.android)
+    testImplementation(libs.junit.jupiter)
+    testImplementation(libs.junit.jupiter)
     kapt(libs.hilt.compiler)
 
     //Retrofit
@@ -82,7 +84,12 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+
+    //UnitTesting
     testImplementation(libs.junit)
+    testImplementation(libs.kotlintest.runner)
+    testImplementation(libs.mockk)
+
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }
